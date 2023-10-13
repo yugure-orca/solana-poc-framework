@@ -626,6 +626,7 @@ impl LocalEnvironmentBuilder {
             .remove(&feature_set::fix_recent_blockhashes::id());
 
         let mut builder = LocalEnvironmentBuilder { faucet, config };
+        /* 
         builder.add_account_with_data(
             spl_associated_token_account::ID,
             bpf_loader::ID,
@@ -642,6 +643,7 @@ impl LocalEnvironmentBuilder {
         );
         builder.add_account_with_data(spl_memo::ID, bpf_loader::ID, programs::SPL_MEMO3, true);
         builder.add_account_with_data(spl_token::ID, bpf_loader::ID, programs::SPL_TOKEN, true);
+        */
         builder.add_account_with_lamports(rent::ID, sysvar::ID, 1);
         builder
     }
@@ -847,7 +849,7 @@ impl LocalEnvironmentBuilder {
         let bank = Bank::new_with_paths(
             &self.config,
             Arc::new(RuntimeConfig::default()),
-            vec![tmpdir.to_path_buf()],
+            vec![/*tmpdir.to_path_buf()*/],
             None,
             None,
             AccountSecondaryIndexes {
