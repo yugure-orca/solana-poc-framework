@@ -844,12 +844,12 @@ impl LocalEnvironmentBuilder {
 
     /// Finalizes the environment.
     pub fn build(&mut self) -> LocalEnvironment {
-        let tmpdir = Path::new("/tmp/");
+        let tmpdir = Path::new("/tmp/hoge");
         let exit = Arc::new(AtomicBool::new(false));
         let bank = Bank::new_with_paths(
             &self.config,
             Arc::new(RuntimeConfig::default()),
-            vec![/*tmpdir.to_path_buf()*/],
+            vec![tmpdir.to_path_buf()],
             None,
             None,
             AccountSecondaryIndexes {
